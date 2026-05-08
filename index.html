@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morie.Picture - Jasa Sewa & Paket Usaha Convex Mirror</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-blue: #0A5eb0;
+            --secondary-blue: #1e88e5;
+            --light-blue: #f0f7ff;
+            --dark-blue: #042548;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --white: #ffffff;
+            --discount-red: #ef4444;
+            --success-green: #25D366;
+        }
+
+        body {
+            background-color: #fafcff;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR - GLASSMORPHISM */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 180px 20px 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 22px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            font-style: italic;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* RENTAL SECTION */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(10, 94, 176, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(10, 94, 176, 0.12);
+        }
+
+        .service-card h3 {
+            font-size: 26px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0;
+            color: var(--text-light);
+        }
+
+        .service-card ul li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            color: var(--white);
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        /* PACKAGE SECTION */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(10, 94, 176, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+        }
+
+        .price-container {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .price-coret {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 14px;
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .price-promo {
+            color: var(--discount-red);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* FLOATING WA BUTTON */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--success-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px 40px;
+            margin-top: 50px;
+        }
+
+        footer h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .footer-credit {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .footer-credit a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 40px; }
+            .hero p { font-size: 18px; }
+            section { padding: 70px 5%; }
+            .floating-wa { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">Morie.Picture</a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#sewa">Layanan Sewa</a></li>
+                <li><a href="#paket">Paket Usaha</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="beranda" class="hero">
+        <h1>Morie.Picture</h1>
+        <p>"Take Picture For Every Memory"</p>
+        <a href="#sewa" class="btn">Lihat Layanan Kami</a>
+    </section>
+
+    <section id="sewa" class="reveal">
+        <h2 class="section-title">Layanan Sewa Convex Mirror</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Sewa CFD / Keramaian</h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Abadikan momen seru Anda saat jalan-jalan santai di CFD atau pusat keramaian.</p>
+                <ul>
+                    <li>Harga: <strong style="color: var(--text-dark);">Rp 5.000 / sesi</strong></li>
+                    <li>Durasi: 3 Menit per sesi</li>
+                    <li>Hasil foto aesthetic dan kekinian</li>
+                </ul>
+                <button class="btn-primary" onclick="orderWA('Halo Morie.Picture, saya tertarik untuk menyewa Convex Mirror di lokasi CFD/Keramaian.')">Booking Sekarang</button>
+            </div>
+
+            <div class="service-card">
+                <h3>Sewa Event & Seremonial</h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Pilihan tepat untuk Wedding, Ulang Tahun, dan acara spesial lainnya.</p>
+                <ul>
+                    <li>1 Jam = <strong style="color: var(--text-dark);">Rp 60.000</strong></li>
+                    <li>2 Jam = <strong style="color: var(--text-dark);">Rp 100.000</strong></li>
+                    <li>3 Jam = <strong style="color: var(--text-dark);">Rp 150.000</strong></li>
+                </ul>
+                <p style="font-size: 13px; color: var(--discount-red); margin: -10px 0 20px; font-style: italic;">*Harga sewa alat saja. Ongkir menyesuaikan.</p>
+                <button class="btn-primary" onclick="orderWA('Halo Morie.Picture, saya ingin bertanya tentang penyewaan Stand Convex Mirror untuk acara event saya.')">Hubungi Admin</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="paket" class="reveal">
+        <h2 class="section-title">Ingin Memulai Usaha Sendiri?</h2>
+        <p style="text-align: center; margin-bottom: 50px; color: var(--text-light); font-size: 18px;">Kami menyediakan peralatan berkualitas bagi Anda yang ingin merintis bisnis penyewaan Convex Mirror.</p>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/0A5eb0/FFFFFF?text=Convex+Mirror" alt="Convex Mirror" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Convex Mirror (Kaca Saja)</h4>
+                    <div class="price-container">
+                        <span class="price-coret">Rp 300.000</span>
+                        <span class="price-promo">Rp 225.000</span>
+                    </div>
+                    <button class="btn-primary" onclick="orderWA('Halo Morie.Picture, saya ingin memesan peralatan: Convex Mirror seharga Rp 225.000.')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/1e88e5/FFFFFF?text=Stand+Mirror" alt="Stand Mirror" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Stand Mirror</h4>
+                    <div class="price-container">
+                        <span class="price-coret">Rp 270.000</span>
+                        <span class="price-promo">Rp 200.000</span>
+                    </div>
+                    <button class="btn-primary" onclick="orderWA('Halo Morie.Picture, saya ingin memesan peralatan: Stand Mirror seharga Rp 200.000.')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/042548/FFFFFF?text=Tripod+Banner" alt="Tripod Banner" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Tripod Banner</h4>
+                    <div class="price-container">
+                        <span class="price-coret">Rp 150.000</span>
+                        <span class="price-promo">Rp 125.000</span>
+                    </div>
+                    <button class="btn-primary" onclick="orderWA('Halo Morie.Picture, saya ingin memesan peralatan: Tripod Banner seharga Rp 125.000.')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://placehold.co/600x400/1f2937/FFFFFF?text=Paket+Usaha+Lengkap" alt="Paket Usaha Lengkap" class="product-img">
+                <div class="product-info">
+                    <h4 class="product-title">Paket Usaha Lengkap</h4>
+                    <p style="font-size: 13px; margin-bottom: 12px; color: var(--text-light); line-height: 1.4;">(Convex Mirror + Stand Mirror + Tripod Banner)</p>
+                    <div class="price-container">
+                        <span class="price-coret">Rp 720.000</span>
+                        <span class="price-promo">Rp 500.000</span>
+                    </div>
+                    <button class="btn-primary" onclick="orderWA('Halo Morie.Picture, saya tertarik untuk memulai bisnis dan ingin membeli PAKET USAHA LENGKAP seharga Rp 500.000.')">Beli Paket Lengkap</button>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; color: var(--text-light); font-size: 14px;">*Ongkir peralatan akan menyesuaikan dengan lokasi pengiriman Anda.</p>
+    </section>
+
+    <footer>
+        <h2>Morie.Picture</h2>
+        <p style="font-style: italic; opacity: 0.9; margin-bottom: 20px;">"Take Picture For Every Memory"</p>
+        
+        <div class="footer-credit">
+            <p>&copy; 2026 Morie.Picture. All rights reserved.</p>
+            <p style="margin-top: 10px;">Website dijalankan oleh <a href="https://www.instagram.com/ryystud10" target="_blank">@ryystud10</a></p>
+        </div>
+    </footer>
+
+    <a href="#" class="floating-wa" onclick="orderWA('Halo Morie.Picture, saya ingin bertanya seputar layanan Anda.')" title="Chat WhatsApp">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.005 2.146c-7.65 0-13.855 6.205-13.855 13.855 0 2.446.638 4.832 1.848 6.94L2.147 29.855l7.07-1.854c2.046 1.096 4.336 1.674 6.788 1.674 7.65 0 13.855-6.205 13.855-13.855S23.655 2.146 16.005 2.146zm0 25.35c-2.072 0-4.103-.556-5.882-1.612l-.422-.25-4.372 1.147 1.168-4.26-.275-.436c-1.16-1.84-1.77-3.957-1.77-6.136 0-6.348 5.166-11.514 11.514-11.514s11.514 5.166 11.514 11.514-5.166 11.514-11.514 11.514zm6.31-8.625c-.346-.174-2.048-1.01-2.365-1.127-.317-.116-.548-.174-.78.174-.23.346-.893 1.127-1.095 1.358-.202.23-.404.26-.75.086-2.115-.99-3.66-2.044-5.06-4.407-.216-.363.21-.345.888-1.7.115-.23.058-.432-.03-.605-.086-.174-.78-1.882-1.068-2.574-.28-.674-.567-.583-.78-.593-.202-.01-.433-.01-.664-.01-.23 0-.606.087-.923.433-.317.346-1.21 1.183-1.21 2.884 0 1.702 1.24 3.346 1.413 3.577.173.23 2.438 3.722 5.906 5.222 2.378 1.026 3.23.864 3.835.72 1-.24 2.048-.836 2.336-1.644.288-.808.288-1.5.202-1.644-.087-.144-.318-.23-.664-.403z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Fungsi WhatsApp Link
+        function orderWA(message) {
+            event.preventDefault();
+            const phoneNumber = "6281352300550";
+            const encodedMessage = encodeURIComponent(message);
+            const waLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(waLink, '_blank');
+        }
+
+        // Animasi Scroll (Intersection Observer)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger saat load pertama kali
+    </script>
+</body>
+</html>
